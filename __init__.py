@@ -1,5 +1,6 @@
 from flask import Flask, request
 from subprocess import Popen
+import shlex
 
 app = Flask(__name__)
 
@@ -17,10 +18,10 @@ def json():
         if playing.poll() == None:
             print("killing last")
             playing.kill()
-        playing = Popen('{0} {1} {2}'.format('mpv', '--fs', data['link']))
+        playing = Popen(shlex.split('{0} {1} {2}'.format('mpv', '--fs', data['link'])))
         
     except:
-        playing = Popen('{0} {1} {2}'.format('mpv', '--fs', data['link']))
+        playing = Popen(shlex.split('{0} {1} {2}'.format('mpv', '--fs', data['link'])))
         
     # Return a success message
     return 'JSON received!'
