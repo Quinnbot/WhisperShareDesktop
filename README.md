@@ -1,0 +1,1 @@
+flask --app WhisperShareDesktop run --debug --host=0.0.0.0
