@@ -23,8 +23,7 @@ def json():
     except:
         playing = Popen(shlex.split('{0} {1} {2}'.format('mpv', '--fs', data['link'])))
         
-    # Return a success message
-    return 'JSON received!'
+    return 'success'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
